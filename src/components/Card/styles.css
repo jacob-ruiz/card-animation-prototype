@@ -1,0 +1,24 @@
+.card {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+  transition: 150ms;
+  overflow: hidden;
+}
+
+.card.open {
+  height: 260px;
+  box-shadow: 0px 4px 24px #e5ebf5;
+}
+
+.card.closed {
+  height: 48px;
+  cursor: pointer;
+  box-shadow: 0px 2px 8px #eff0f2;
+}
+
+.card.exited {
+  height: 0px;
+  margin-bottom: 0px;
+}

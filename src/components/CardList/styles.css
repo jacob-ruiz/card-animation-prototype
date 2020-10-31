@@ -1,0 +1,8 @@
+.cards-column {
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  right: 180px;
+  bottom: 0;
+  width: 245px;
+}
