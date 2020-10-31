@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Card from '../Card/Card';
 import './styles.css';
@@ -16,19 +16,14 @@ function CardList() {
   ]);
   const [activeItem, setActiveItem] = useState(1);
 
-  function openNextCard(indexOfRemovedCard) {
-    setActiveItem(2);
-  }
-
   function removeItem(id) {
-    let indexOfRemovedCard;
-    const newList = items.filter((item, index) => {
-      indexOfRemovedCard = index;
-      return item.id !== id;
-    });
+    const newList = items.filter((item) => item.id !== id);
 
     setItems(newList);
-    openNextCard(indexOfRemovedCard);
+
+    if (items.length) {
+      setActiveItem(items[0].id);
+    }
   }
 
   return (
