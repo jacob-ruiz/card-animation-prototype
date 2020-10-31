@@ -1,48 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
 
-function Card({ onExited, id, children, isActive, onClick }) {
-  const [state, setState] = useState('closed');
+function Card({ id, isActive, setActiveItem, onRemove }) {
+  const [render, setRender] = useState(true);
 
   useEffect(() => {
-    if (isActive) {
-      setState('open');
-    } else {
-      setState('closed');
-    }
-  }, [isActive]);
+    return () => {
+      console.log('unmounting!');
+    };
+  }, []);
 
-  function handleAccept() {
-    setState('exited');
+  function prepareToUnmount() {
+    setRender(false);
   }
 
   function handleTransitionEnd() {
-    if (state === 'exited') {
-      onExited();
-    }
-  }
-
-  function makeClassName(state) {
-    if (isActive) {
-      return 'open';
-    }
-    return state;
-  }
-
-  function handleClick(event) {
-    if (state === 'closed') {
-      onClick();
+    if (!render) {
+      onRemove(id);
     }
     return;
   }
 
   return (
     <div
-      onClick={handleClick}
-      className={`card ${state}`}
+      onClick={() => setActiveItem(id)}
+      className={`card ${isActive ? 'open' : 'closed'} ${
+        render ? null : 'exited'
+      }`}
       onTransitionEnd={handleTransitionEnd}
     >
-      {isActive && <button onClick={handleAccept}>accept</button>}
+      {isActive && <button onClick={prepareToUnmount}>accept</button>}
     </div>
   );
 }
