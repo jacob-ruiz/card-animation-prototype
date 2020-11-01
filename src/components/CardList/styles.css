@@ -6,3 +6,9 @@
   bottom: 0;
   width: 245px;
 }
+
+.cards-column.empty {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
