@@ -3,6 +3,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Card from '../Card/Card';
 import './styles.css';
 
+// TODO: Fix crash when accepting final card
+
 const initialList = [
   { id: 1, text: 'Suggestion 1' },
   { id: 2, text: 'Suggestion 2' },
@@ -39,7 +41,8 @@ function CardList() {
     } else if (itemBefore) {
       newItemID = itemBefore.id;
     } else {
-      setActiveItem(null);
+      console.log('last card!');
+      newItemID = null;
     }
     setActiveItem(newItemID);
     setItems(newList);
