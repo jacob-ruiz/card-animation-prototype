@@ -3,11 +3,16 @@ button {
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  background: #a9f9e1;
+  background: #d0fbee;
   border-radius: 4px;
   outline: none;
   border: none;
   padding: 2px 6px;
+  transition: 100ms;
+}
+
+button:hover {
+  background: #a9f9e1;
 }
 
 .card {
@@ -17,25 +22,38 @@ button {
   margin-bottom: 8px;
   overflow: hidden;
   padding: 12px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 .card.open {
   height: 260px;
   box-shadow: 0px 4px 24px #e5ebf5;
-  transition: 180ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+.card.closed .inner {
+  opacity: 0;
+  transition: 100ms;
+}
+
+.card.open .inner {
+  opacity: 1;
+  transition: 100ms;
 }
 
 .card.closed {
   height: 48px;
   cursor: pointer;
   box-shadow: 0px 2px 8px #eff0f2;
-  transition: 180ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 .card.exited {
   height: 0px;
   padding: 0;
   margin-bottom: 0px;
-  transition: 180ms ease-in-out;
+  transition: 100ms ease-in-out;
   transform: scale(0.9);
 }

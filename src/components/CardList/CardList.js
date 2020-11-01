@@ -29,13 +29,18 @@ function CardList() {
       return item.id !== id;
     });
 
+    setItems(newList);
+    // openNextCard(i);  <- option to open next card automatically
+  }
+
+  function openNextCard(currentIndex) {
     // Here, we figure out which card to open next
     // We need to find the id of the card after the current card
     // If there is no "next card", we check if there is a card before
     // If there is neither, then we're dismissing the next card
     let newItemID;
-    const itemAfter = items[i + 1];
-    const itemBefore = items[i - 1];
+    const itemAfter = items[currentIndex + 1];
+    const itemBefore = items[currentIndex - 1];
     if (itemAfter) {
       newItemID = itemAfter.id;
     } else if (itemBefore) {
@@ -45,7 +50,6 @@ function CardList() {
       newItemID = null;
     }
     setActiveItem(newItemID);
-    setItems(newList);
   }
 
   return (

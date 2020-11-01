@@ -29,7 +29,9 @@ function Card({ id, isActive, setActiveItem, onRemove }) {
       }`}
       onTransitionEnd={handleTransitionEnd}
     >
-      {isActive && <button onClick={prepareToUnmount}>accept</button>}
+      <div className="inner">
+        {isActive && <button onClick={prepareToUnmount}>accept</button>}
+      </div>
     </div>
   );
 }
