@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
 function Card({ id, isActive, setActiveItem, onRemove }) {
   const [render, setRender] = useState(true);
 
-  useEffect(() => {
-    return () => {
-      console.log('unmounting!');
-    };
-  }, []);
-
+  // Before unmounting, we need to animate the element away
   function prepareToUnmount() {
     setRender(false);
   }
 
+  // Once the animation is complete, remove the item (and unmount)
   function handleTransitionEnd() {
     if (!render) {
       onRemove(id);
