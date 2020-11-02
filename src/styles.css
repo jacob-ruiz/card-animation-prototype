@@ -12,5 +12,14 @@ body {
 
 .App {
   font-family: 'Poppins', sans-serif;
-  text-align: center;
+  /* text-align: center; */
+}
+
+select {
+  cursor: pointer;
+  padding: 4px;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
 }

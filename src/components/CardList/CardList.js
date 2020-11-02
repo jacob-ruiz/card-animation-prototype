@@ -13,7 +13,7 @@ const initialList = [
   { id: 8 },
 ];
 
-function CardList() {
+function CardList({ options }) {
   const [items, setItems] = useState(initialList);
   const [activeItem, setActiveItem] = useState(1);
 
@@ -28,8 +28,9 @@ function CardList() {
 
     setItems(newList);
 
-    // Uncomment this line to open the next card automatically.
-    // openNextCard(i);
+    if (options.autoOpen) {
+      openNextCard(i);
+    }
   }
 
   function openNextCard(currentIndex) {
@@ -60,6 +61,7 @@ function CardList() {
           isActive={activeItem === id}
           setActiveItem={setActiveItem}
           onRemove={handleRemove}
+          options={options}
         />
       ))}
     </div>
