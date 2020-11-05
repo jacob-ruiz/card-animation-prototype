@@ -2,16 +2,13 @@
   background: white;
   border-radius: 8px;
   width: 100%;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   overflow: hidden;
-  padding: 12px;
-  display: grid;
-  align-items: center;
-  justify-items: center;
+  padding: 24px;
+  transition: 1s;
 }
 
 .card.open {
-  height: 260px;
   box-shadow: 0px 4px 24px #e5ebf5;
 }
 
@@ -26,16 +23,28 @@
 }
 
 .card.closed {
-  height: 48px;
+  /* height: 48px; */
   cursor: pointer;
   box-shadow: 0px 2px 8px #eff0f2;
 }
 
 .card.exited {
-  height: 0px;
-  padding: 0;
-  margin-bottom: 0px;
-  transform: scale(0.9);
+  /* height: 0px; */
+  /* margin-bottom: 0px; */
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+/* INNER */
+.inner.visible {
+  opacity: 1;
+}
+
+.inner.hidden {
+  opacity: 0.5;
+}
+
+.inner.exited {
 }
 
 /* BUTTON */
@@ -54,4 +63,36 @@ button {
 
 button:hover {
   background: #a9f9e1;
+}
+
+/* content styles */
+.inner {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.category {
+  margin: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #5a677c;
+}
+.mistake {
+  margin: 0;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration-line: line-through;
+}
+.suggestion {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.description {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 11px;
 }
