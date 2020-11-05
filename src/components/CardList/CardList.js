@@ -3,14 +3,68 @@ import Card from '../Card/Card';
 import './styles.css';
 
 const initialList = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
-  { id: 7 },
-  { id: 8 },
+  {
+    id: 1,
+    category: 'style',
+    mistake: '98%',
+    suggestion: '98 percent',
+    description:
+      'Spell out ‘percent’ rather than use the percent symbol (%), when using numerals.',
+  },
+  {
+    id: 2,
+    category: 'style',
+    mistake: 'lorem',
+    suggestion: 'ipsum',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+  },
+  {
+    id: 3,
+    category: 'style',
+    mistake: 'exercitation',
+    suggestion: 'architecto',
+    description: 'Nemo enim ipsam voluptatem',
+  },
+  {
+    id: 4,
+    category: 'style',
+    mistake: 'minima',
+    suggestion: 'veniam',
+    description:
+      'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur',
+  },
+  {
+    id: 5,
+    category: 'style',
+    mistake: '98%',
+    suggestion: '98 percent',
+    description:
+      'Spell out ‘percent’ rather than use the percent symbol (%), when using numerals.',
+  },
+  {
+    id: 6,
+    category: 'style',
+    mistake: 'lorem',
+    suggestion: 'ipsum',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+  },
+  {
+    id: 7,
+    category: 'style',
+    mistake: 'exercitation',
+    suggestion: 'architecto',
+    description: 'Nemo enim ipsam voluptatem',
+  },
+  {
+    id: 8,
+    category: 'style',
+    mistake: 'minima',
+    suggestion: 'veniam',
+    description:
+      'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur',
+  },
 ];
 
 function CardList({ options }) {
@@ -54,11 +108,11 @@ function CardList({ options }) {
   // Otherwise, render cards
   return (
     <div className="cards-column">
-      {items.map(({ id, text }) => (
+      {items.map((item) => (
         <Card
-          key={id}
-          id={id}
-          isActive={activeItem === id}
+          key={item.id}
+          item={item}
+          isActive={activeItem === item.id}
           setActiveItem={setActiveItem}
           onRemove={handleRemove}
           options={options}
